@@ -1,39 +1,39 @@
 const nameWrap = document.getElementById('nameWrap');   
-const imagWrap = document.getElementById('imagWrap')
-const main = [
-    {
-        "name": "Philippe",
-        "src": "cat.jpg"
-    },
-    {
-        "name": "Sondra",
-        "src": "catTwo.jpg"
-    },
-    {
-        "name": "Antoinne",
-        "src": "3.jpg"
-    },
-    {
-        "name": "Lulu",
-        "src": "4.jpg"
-    },
-    {
-        "name": "coco",
-        "src": "5.jpg"
-    }
-]
+const imageWrap = document.getElementById('imageWrap')
 
-// nameWrap
-ulItem = document.createElement('ul')
-nameWrap.appendChild(ulItem)
+const main = {
+    "Philippe": "cat.jpg",
+    "Sondra": "catTwo.jpg",
+    "Antoinne": "3.jpg",
+    "Lulu": "4.jpg",
+    "coco": "5.jpg"
+}
 
-for (cat of main) {
-    let liItem = document.createElement('li')
-    liItem.innerText = cat.name
+
+ulItem = document.createElement('ul');
+nameWrap.appendChild(ulItem);
+
+for (key in main) {
+    let liItem = document.createElement('li');
+    liItem.innerText = key
     ulItem.appendChild(liItem)
-    ulItem.addEventListener('click', function(event) {
-        imagWrap.style.background = 'black';
-        imagWrap.style.height = '10vh';
-        imagWrap.style.width = '40vw';
+    
+    liItem.addEventListener('click', function(event) {
+        let item = event.target;
+        let objectKey =  item.innerText
+        let foto = main[objectKey];
+        console.log('"' + objectKey + '":' + '"' + main[objectKey] + '"')
+        
+     
+        
+        
+        var image = document.createElement("IMG");
+        image.setAttribute("src", foto);
+        imageWrap.appendChild(image)
+        image.setAttribute("width", "304");
+        image .setAttribute("height", "228");
+
+        
     })
 }
+
