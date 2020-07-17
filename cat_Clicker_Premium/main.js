@@ -27,16 +27,30 @@ const main = {
 }
 
 
-ulItem = document.createElement('ul');
+ulItem = document.createElement('div');
 nameWrap.appendChild(ulItem);
 
 for (key in main) {
-    let liItem = document.createElement('li');
+    let liItem = document.createElement('p');
+    liItem.style.display = 'flex';
+    liItem.style.width = '64vw'
     liItem.appendChild(clickCount);
     liItem.innerText = key;
     ulItem.appendChild(liItem);
 
-  
+    
+    const divRed = document.createElement('div')
+    liItem.appendChild(divRed);
+    divRed.style.height = '7vh';
+    divRed.style.width = '65%';
+    divRed.style.background = '#9e2324';
+    divRed.style.paddingLeft = '10px';
+    divRed.style.marginLeft =  '58px';
+    let numClicks = document.createElement('p');
+    numClicks.style.fontSize = '20px';
+    divRed.appendChild(numClicks);
+
+
      
     liItem.addEventListener('click', function(event) {
         
@@ -46,6 +60,21 @@ for (key in main) {
         let src = main[objectKey];
         image.setAttribute("src", src);     
         console.log(item)   
+
+
+        let x = function() {
+            if (typeof(Storage) !== "undefined") {
+            if (localStorage.clickcount) {
+              localStorage.clickcount = Number(localStorage.clickcount)+1;
+            } else {
+              localStorage.clickcount = 1;
+        }
+            numClicks.innerText = "You have clicked the button " + localStorage.clickcount + " time(s).";
+      } 
+        }
+
+        x()
+       
       
     })  
        
