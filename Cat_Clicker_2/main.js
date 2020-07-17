@@ -19,37 +19,31 @@ for(cat in urlCat){
 	image.setAttribute("height", "228");
 	image.setAttribute('src',urlGet);
 
+	const divBlue = document.createElement('div')
+		p.appendChild(divBlue);
+		divBlue.style.height = '5vh';
+		divBlue.style.width = '10vw';
+		divBlue.style.background = '#9e2324';
+		divBlue.style.padding = '11px 10px';
+		divBlue.style.marginTop = '30px';
+		let numClicks = document.createElement('p');
+		numClicks.style.fontSize = '20px';
+		divBlue.appendChild(numClicks);
+
+
+	image.addEventListener('click', function() {
+		if (typeof(Storage) !== "undefined") {
+    	if (localStorage.clickcount) {
+      	localStorage.clickcount = Number(localStorage.clickcount)+1;
+    	} else {
+      	localStorage.clickcount = 1;
+    }
+    	numClicks.innerText = "You have clicked the button " + localStorage.clickcount + " time(s).";
+  } 
+	})
+
 	
 }
-
-
-
-// const name = one.children;
-// name[0].innerHTML = "Marko"
-
-
-//TWO CAT 
-
-
-// const catTwo = new Image();
-// catTwo.src = 'catTwo.jpg'
-
-// two.appendChild(catTwo);
-// catTwo.style.height = '30vh';
-// catTwo.style.width = '38vw';
-
-// const name2 = two.children;
-// name2[0].innerHTML = "Lukas"
-
-
-// let a = 1;
-// let text = document.createElement('p');
-// one.appendChild(text);
-
-// let b = 1;
-// let text2 = document.createElement('p');
-// two.appendChild(text2)
-
 
 
 // one.addEventListener('click', function(){
