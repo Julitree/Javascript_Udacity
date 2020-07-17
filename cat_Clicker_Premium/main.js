@@ -3,9 +3,10 @@ const imageWrap = document.getElementById('imageWrap');
 // const buttonClicker = document.getElementById('buttonClicker');
 
 
-let image = document.createElement("img");
+
 let p = document.createElement('p');
 imageWrap.appendChild(p);
+let image = document.createElement("img");
 imageWrap.appendChild(image);
 image.setAttribute("width", "304");
 image.setAttribute("height", "228");
@@ -31,12 +32,9 @@ nameWrap.appendChild(ulItem);
 
 for (key in main) {
     let liItem = document.createElement('li');
-
     liItem.appendChild(clickCount);
-
-
-    liItem.innerText = ` ${key} Clicker Counter `
-    ulItem.appendChild(liItem) 
+    liItem.innerText = key;
+    ulItem.appendChild(liItem);
 
   
      
@@ -46,7 +44,8 @@ for (key in main) {
         p.innerHTML = `I introduce to you my cat ${item.textContent}`
         let objectKey =  item.innerText;        
         let src = main[objectKey];
-        image.setAttribute("src", src);        
+        image.setAttribute("src", src);     
+        console.log(item)   
       
     })  
        
