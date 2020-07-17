@@ -1,6 +1,6 @@
 const nameWrap = document.getElementById('nameWrap');   
 const imageWrap = document.getElementById('imageWrap');
-const buttonClicker = document.getElementById('buttonClicker');
+// const buttonClicker = document.getElementById('buttonClicker');
 
 
 let image = document.createElement("img");
@@ -9,6 +9,12 @@ imageWrap.appendChild(p);
 imageWrap.appendChild(image);
 image.setAttribute("width", "304");
 image.setAttribute("height", "228");
+
+
+
+let clickCount = document.createElement('p');
+clickCount.innerText = 'esta es la cantidad';
+
 
 
 const main = {
@@ -25,9 +31,14 @@ nameWrap.appendChild(ulItem);
 
 for (key in main) {
     let liItem = document.createElement('li');
-    liItem.innerText = key
+
+    liItem.appendChild(clickCount);
+
+
+    liItem.innerText = ` ${key} Clicker Counter `
     ulItem.appendChild(liItem) 
 
+  
      
     liItem.addEventListener('click', function(event) {
         
@@ -39,7 +50,7 @@ for (key in main) {
       
     })  
        
-    buttonClicker.style.display = 'block';
+    // buttonClicker.style.display = 'block';
 
 }
 

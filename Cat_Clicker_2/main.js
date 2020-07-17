@@ -1,46 +1,61 @@
 
 //ONE CAT
 
-const one = document.getElementById('one');
-const cat = new Image();
-cat.src = 'cat.jpg'
+const one = document.querySelector('.container');
+const  urlCat = {
+	"Philippe": "cat.jpg",
+    "Sondra": "3.jpg",
+};
 
-one.appendChild(cat);
-cat.style.height = '30vh';
-cat.style.width = '41vw';
+for(cat in urlCat){
+	const p = document.createElement('p');
+	p.innerText = cat;
+	one.appendChild(p);
 
-const name = one.children;
-name[0].innerHTML = "Marko"
+	const urlGet = urlCat[cat];
+	const image = document.createElement('img');
+	one.appendChild(image);
+	image.setAttribute("width", "304");
+	image.setAttribute("height", "228");
+	image.setAttribute('src',urlGet);
+
+	
+}
+
+
+
+// const name = one.children;
+// name[0].innerHTML = "Marko"
 
 
 //TWO CAT 
 
-const two = document.getElementById('two');
-const catTwo = new Image();
-catTwo.src = 'catTwo.jpg'
 
-two.appendChild(catTwo);
-catTwo.style.height = '30vh';
-catTwo.style.width = '38vw';
+// const catTwo = new Image();
+// catTwo.src = 'catTwo.jpg'
 
-const name2 = two.children;
-name2[0].innerHTML = "Lukas"
+// two.appendChild(catTwo);
+// catTwo.style.height = '30vh';
+// catTwo.style.width = '38vw';
 
-
-let a = 1;
-let text = document.createElement('p');
-one.appendChild(text);
-
-let b = 1;
-let text2 = document.createElement('p');
-two.appendChild(text2)
+// const name2 = two.children;
+// name2[0].innerHTML = "Lukas"
 
 
+// let a = 1;
+// let text = document.createElement('p');
+// one.appendChild(text);
 
-one.addEventListener('click', function(){
-    text.innerHTML = `Cat one was clicked ${a++} times -`;
-})
+// let b = 1;
+// let text2 = document.createElement('p');
+// two.appendChild(text2)
 
-two.addEventListener('click', function(){
-    text2.innerHTML = `- Cat two was clicked ${b++} times`;
-})
+
+
+// one.addEventListener('click', function(){
+//     text.innerHTML = `Cat one was clicked ${a++} times -`;
+// })
+
+// two.addEventListener('click', function(){
+//     text2.innerHTML = `- Cat two was clicked ${b++} times`;
+// })
