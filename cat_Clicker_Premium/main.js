@@ -1,8 +1,16 @@
 const nameWrap = document.getElementById('nameWrap');   
 const imageWrap = document.getElementById('imageWrap');
-// const buttonClicker = document.getElementById('buttonClicker');
+const clickcount = document.getElementById('clickcount');
 
+const main = {
+  "Philippe": "cat.jpg",
+  "Sondra": "catTwo.jpg",
+  "Antoinne": "3.jpg",
+  "Lulu": "4.jpg",
+  "Coco": "5.jpg"
+}
 
+//Modulo Imagen
 
 let p = document.createElement('p');
 imageWrap.appendChild(p);
@@ -13,72 +21,35 @@ image.setAttribute("height", "228");
 
 
 
-let clickCount = document.createElement('p');
-clickCount.innerText = 'esta es la cantidad';
-
-
-
-const main = {
-    "Philippe": "cat.jpg",
-    "Sondra": "catTwo.jpg",
-    "Antoinne": "3.jpg",
-    "Lulu": "4.jpg",
-    "Coco": "5.jpg"
-}
-
-
-ulItem = document.createElement('div');
-nameWrap.appendChild(ulItem);
+//Add all cat 
 
 for (key in main) {
-    let liItem = document.createElement('p');
-    liItem.style.display = 'flex';
-    liItem.style.width = '64vw'
-    liItem.appendChild(clickCount);
-    liItem.innerText = key;
-    ulItem.appendChild(liItem);
-
+    let catButton = document.createElement('button');
+    nameWrap.appendChild(catButton);
+    catButton.innerText = key;
+    catButton.style.fontSize = '20px';
+    catButton.style.marginLeft = '10px';
+    catButton.style.backgroundColor = '#FFEB3B';
     
-    const divRed = document.createElement('div')
-    liItem.appendChild(divRed);
-    divRed.style.height = '7vh';
-    divRed.style.width = '65%';
-    divRed.style.background = '#9e2324';
-    divRed.style.paddingLeft = '10px';
-    divRed.style.marginLeft =  '58px';
-    let numClicks = document.createElement('p');
-    numClicks.style.fontSize = '20px';
-    divRed.appendChild(numClicks);
+    const divRed = document.createElement('p')
+    clickcount.appendChild(divRed);
+    divRed.style.fontSize = '15px';
 
-
+    let counter = 1;
      
-    liItem.addEventListener('click', function(event) {
+    catButton.addEventListener('click', function(event) {
         
         let item = event.target;
         p.innerHTML = `I introduce to you my cat ${item.textContent}`
         let objectKey =  item.innerText;        
         let src = main[objectKey];
         image.setAttribute("src", src);     
-        console.log(item)   
+        console.log(objectKey)   
 
 
-        let x = function() {
-            if (typeof(Storage) !== "undefined") {
-            if (localStorage.clickcount) {
-              localStorage.clickcount = Number(localStorage.clickcount)+1;
-            } else {
-              localStorage.clickcount = 1;
-        }
-            numClicks.innerText = "You have clicked the button " + localStorage.clickcount + " time(s).";
-      } 
-        }
+        divRed.innerText =  `${objectKey} ${counter++}  was clicking.`;
 
-        x()
-       
-      
     })  
-       
-    // buttonClicker.style.display = 'block';
-
 }
+
 
